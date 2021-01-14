@@ -24,11 +24,16 @@ function foodEvent(){
 function bonusEvent(){
     switch(bonusType){
         case 1:
-            fps++;
+            if(fps < 21){
+                fps++;
+            }
+            
         break;
 
         case 2:
-            fps--;
+            if(fps > 9){
+                fps--;
+            } 
         break;
 
         case 3:
