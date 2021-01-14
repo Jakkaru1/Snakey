@@ -9,7 +9,7 @@ function drawBackground(){
 function drawGrid(){
     for(let i = 0; i < tileCountX; i++){
         for(let j = 0; j < tileCountY; j++){
-            rectangle("#ffffff", tileSize * i, tileSize * j, tileSize - 1, tileSize - 1);
+            rectangle("#ffffff", tileSize * i, tileSize * j, tileSize - 1, tileSize - 1); //dat prec - 1 a zmiznu mriezky
         };
     };
 }
