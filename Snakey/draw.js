@@ -1,6 +1,6 @@
 //konstruktor
 function draw(){
-    drawBackground();
+    drawBackground(); 
     drawGrid();
     drawFood();
     drawBonus();

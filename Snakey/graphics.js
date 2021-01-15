@@ -16,7 +16,7 @@ function drawGrid(){
 
 //draw food
 function drawFood(){
-    ctx.drawImage(foodImage, foodPosX, foodPosY, tileSize - 1, tileSize - 1);      
+    ctx.drawImage(foodImage, foodPosX, foodPosY, tileSize - 1, tileSize - 1);   
 }
 
 //draw bonus

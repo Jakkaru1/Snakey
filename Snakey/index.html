@@ -8,11 +8,16 @@
     <style>
         body {
             background: #335599;
-            text-align: center;
+            background-image: url("./sprites/background.png");
+            background-size: cover;
         }
 
         canvas {
-            border: 10px solid #EDEDED;
+            border: 1px solid #412C17;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); 
         }
 
         h1 {
@@ -45,7 +50,7 @@
     <script src="images.js" type="text/javascript"></script>
     
 
-    <script>
+    <script id="game">
         //listeners
         document.addEventListener("keydown", keyDown);
 
@@ -92,11 +97,11 @@
         let surprisePosY = 0;
         let surpriseType = 0;
         let isThereSurprise = false;
-
+        
         //main
         function main(){
             if(gameIsRunning === true){
-                draw();               
+                draw();             
                 update();
                 setTimeout(main, 1000 / fps);
             }
@@ -106,12 +111,13 @@
         resetSurprise();
         
         main();
-
+        
         //GAME OVER
         //Keyboard restarts game
         function gameOver(){
             title.innerHTML = `☠️<strong> - ${score} - </strong>☠️`;
             gameIsRunning = false;
+            window.location.href = "gameover.html";
         }
 
         function levelWin(){
