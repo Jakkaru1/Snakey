@@ -27,7 +27,7 @@ scoreImage.src = "./sprites/menu/score.png";
 soundImage.src = "./sprites/menu/soundOn.png";
 pauseImage.src = "./sprites/menu/pause.png";
 
-//gameover images
+//gameover and win images
 let gameOverImage = new Image();
 let restartImage = new Image();
 let homeImage = new Image();

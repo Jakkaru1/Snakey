@@ -16,6 +16,7 @@ function update(){
     bonusCollision();
     surpriseCollision();
     winCondition();
+    keyBoard = true;
 }
 
 //random food position
