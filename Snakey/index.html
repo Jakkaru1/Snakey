@@ -7,126 +7,70 @@
 
     <style>
         body {
-            background: #335599;
-            background-image: url("./sprites/background.png");
+            background: #000000;
             background-size: cover;
         }
 
         canvas {
-            border: 1px solid #412C17;
+            border: 0px solid #412C17;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%); 
         }
-
-        h1 {
-            margin-top: 0;
-            font-size: 2em;
-            font-family: "Avenir Next", Verdana;
-            font-weight: bold;
-            letter-spacing: -5px;
-        }
-
-        h1 strong {
-            font-size: 1.35em;
-            display: inline-block;
-            margin: 0 0.25em;
-        }
     </style>
 </head>
 
-<body>
+<body onclick="mouseClick(event)">
     <canvas width="600" height="600"></canvas>
-    <h1>0</h1>
-
-    <script src="update.js" type="text/javascript"></script>
-    <script src="draw.js" type="text/javascript"></script>
-    <script src="keyDown.js" type="text/javascript"></script>
-
-    <script src="graphics.js" type="text/javascript"></script>
-    <script src="collisions.js" type="text/javascript"></script>
-    <script src="events.js" type="text/javascript"></script>
+        
     <script src="images.js" type="text/javascript"></script>
     <script src="sounds.js" type="text/javascript"></script>
-    
 
-    <script id="game">
-        //listeners
-        document.addEventListener("keydown", keyDown);
-
+    <script id="menu">
         //canvas
-        const canvas = document.querySelector("canvas");
-        const title = document.querySelector("h1");
-        const ctx = canvas.getContext("2d");
-        
-        //game
-        let gameIsRunning = true;
-
-        let fps = 15;
-        const tileSize = 30;
-        const tileCountX = canvas.width / tileSize;
-        const tileCountY = canvas.height / tileSize;
-
-        let mode = 1;
-        
-        let score = 0;
-        let multiplier = 1;
-        let keyBoard = false;
-        
-        //player
-        let snakeSpeed = tileSize;
-        let snakePosX = 0;
-        let snakePosY = canvas.height / 2;
-
-        let velocityX = 1;
-        let velocityY = 0;
-        let direction ="right";
-
-        let body = [];
-        
-        let snakeLength = 4;
-        
-        //food,bonus
-        let foodPosX = 0;
-        let foodPosY = 0;
-
-        let bonusPosX = 0;
-        let bonusPosY = 0;
-        let bonusType = 0;
-
-        let surprisePosX = 0;
-        let surprisePosY = 0;
-        let surpriseType = 0;
-        let isThereSurprise = false;
-        
-        //main
-        function main(){
-            if(gameIsRunning === true){
-                draw();             
-                update();
-                setTimeout(main, 1000 / fps);
+        const menuCanvas = document.querySelector("canvas");
+        const menuCtx = menuCanvas.getContext("2d");
+        //mouse
+        let mouseX = 0;
+        let mouseY = 0;
+        //buttons load and draw
+        menuImage.onload = function(){
+            menuCtx.drawImage(menuImage, 0, 0, menuCanvas.width, menuCanvas.height);
+            menuCtx.drawImage(playImage,90, 320, 120, 120);
+            menuCtx.drawImage(scoreImage,240, 320, 120, 120);
+            menuCtx.drawImage(soundImage,390, 320, 120, 120);
+        }
+        //mouse click event
+        function mouseClick(event) {
+            mouseX = event.clientX;
+            mouseY = event.clientY;
+            buttonClick();
+        }
+        //on mouse click
+        function buttonClick(){
+            if(mouseX > 645 && mouseX < 760 && mouseY > 445 && mouseY < 565){
+                window.location.href = "game.html";
+            }else if(mouseX > 795 && mouseX < 910 && mouseY > 445 && mouseY < 565){
+                window.location.href = "index.html";
+            }else if(mouseX > 945 && mouseX < 1060 && mouseY > 445 && mouseY < 565){
+                if(sounds === true){
+                    sounds = false;
+                    soundImage.src = "./sprites/menu/soundOff.png";
+                    menuCtx.drawImage(soundImage,390, 320, 120, 120);
+                }else if(sounds === false){
+                    sounds = true;
+                    soundImage.src = "./sprites/menu/soundOn.png";
+                    menuCtx.drawImage(soundImage,390, 320, 120, 120);
+                }else{
+                    sounds = sounds;
+                }
+            }else{
+                mouseX = 0;
+                mouseY = 0;
             }
         }
-        resetFood();
-        resetBonus();
-        resetSurprise();
-        
-        main();
-        
-        //GAME OVER
-        //Keyboard restarts game
-        function gameOver(){
-            title.innerHTML = `☠️<strong> - ${score} - </strong>☠️`;
-            gameIsRunning = false;
-            window.location.href = "gameover.html";
-        }
 
-        function levelWin(){
-            title.innerHTML = `🏆<strong> - ${score} - </strong>🏆`;
-            gameIsRunning = false;
-        }
-        
     </script>
 </body>
 </html>

@@ -68,7 +68,8 @@ function resetBonus(){
     //dont spawn bonus on snakes body
     if(body.some((snakePart) => snakePart.x === bonusPosX && snakePart.y === bonusPosY)){
         resetBonus();
-
+    } 
+    
     //dont spawn bonus on food
     if(bonusPosX === foodPosX && bonusPosY === foodPosY){
         resetBonus();
@@ -78,7 +79,7 @@ function resetBonus(){
     if(bonusPosX === surprisePosX && bonusPosY === surprisePosY){
         resetBonus();
     }
-    }   
+      
 }
 
 //random surprise position

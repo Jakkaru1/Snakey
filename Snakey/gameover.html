@@ -7,13 +7,11 @@
 
     <style>
         body {
-            background: #335599;
-            background-image: url("./sprites/background.png");
+            background: #000000;
             background-size: cover;
         }
 
         canvas {
-            border: 1px solid #412C17;
             position: absolute;
             top: 50%;
             left: 50%;
@@ -35,25 +33,26 @@
         let mouseX = 0;
         let mouseY = 0;
         
+        //buttons load and draw
         gameOverImage.onload = function(){
             gameOverCtx.drawImage(gameOverImage, 0, 0, gameOverCanvas.width, gameOverCanvas.height);
-            gameOverCtx.drawImage(restartImage, 150, 250, 120, 120);
-            gameOverCtx.drawImage(homeImage, 330, 250, 120, 120);
+            gameOverCtx.drawImage(restartImage, 150, 270, 120, 120);
+            gameOverCtx.drawImage(homeImage, 330, 270, 120, 120);
         }
-
+        
+        //mouse click event
         function mouseClick(event) {
             mouseX = event.clientX;
             mouseY = event.clientY;
             buttonClick();
         }
-        
-        
+        //on mouse click
         function buttonClick(){
-            if(mouseX > 700 && mouseX < 825 && mouseY > 375 && mouseY < 500){
+            if(mouseX > 700 && mouseX < 825 && mouseY > 395 && mouseY < 480){
                 
+                window.location.href = "game.html";
+            }else if(mouseX > 885 && mouseX < 1000 && mouseY > 395 && mouseY < 480){
                 window.location.href = "index.html";
-            }else if(mouseX > 885 && mouseX < 1000 && mouseY > 375 && mouseY < 500){
-                window.location.href = "menu.html";
             }else{
                 mouseX = 0;
                 mouseY = 0;
