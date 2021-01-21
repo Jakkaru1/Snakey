@@ -38,7 +38,7 @@ function foodCollision(){
 function bonusCollision(){
     if(snakePosX === bonusPosX && snakePosY === bonusPosY){
         bonusEvent();
-        resetBonus();
+        resetBonus(); 
     }
 }
 

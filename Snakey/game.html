@@ -47,18 +47,23 @@
     <script src="events.js" type="text/javascript"></script>
     <script src="images.js" type="text/javascript"></script>
     <script src="sounds.js" type="text/javascript"></script>
+    <script src="score.js" type="text/javascript"></script>
     <script src="exceptions.js" type="text/javascript"></script>
     
+    <audio loop autoplay id="gameMusic"> 
+        <source src="./sounds/gameMusic.mp3" type="audio/mp3">
+    </audio>
 
     <script id="game">
         //listeners
         document.addEventListener("keydown", keyDown);
-
         //canvas
         const canvas = document.querySelector("canvas");
         const title = document.querySelector("h1");
         const ctx = canvas.getContext("2d");
-        
+        //music
+        var gameMusic = document.getElementById("gameMusic");
+        gameMusic.volume = 0.2;
         //game
         let gameIsRunning = true;
 
@@ -67,7 +72,6 @@
         const tileCountX = canvas.width / tileSize;
         const tileCountY = canvas.height / tileSize;
         
-        let score = 0;
         let multiplier = 1;
         let keyBoard = false;
         

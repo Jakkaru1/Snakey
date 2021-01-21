@@ -1,5 +1,6 @@
 let style = "styleThree";
 
+
 //index images
 let headImage = new Image();
 let bodyImage = new Image();

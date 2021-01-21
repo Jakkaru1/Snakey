@@ -10,6 +10,7 @@ function foodEvent(){
     score = score + (1 * multiplier);
     snakeLength++;
     title.textContent = score;
+    foodPopSound.play();
     //after eating food changes bonusType
     bonusRandomType();
     drawBonus();
@@ -26,6 +27,7 @@ function bonusEvent(){
         case 1:
             if(fps < 21){
                 fps++;
+                plusPopSound.play();
             }
             
         break;
@@ -33,11 +35,13 @@ function bonusEvent(){
         case 2:
             if(fps > 9){
                 fps--;
+                minusPopSound.play();
             } 
         break;
 
         case 3:
             multiplier++;
+            multiplierPopSound.play();
         break;
     }
 }
@@ -47,12 +51,14 @@ function surpriseEvent(){
     switch(surpriseType){
         case 1:
             score = Math.round(score / 2);
-            title.textContent = score;
+            title.textContent = score;        
+            surpriseBadSound.play();
         break;
 
         case 2:
             score = Math.round(score * 2);
             title.textContent = score;
+            surpriseGoodSound.play();
         break;
     }
     
